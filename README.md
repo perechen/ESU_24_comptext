@@ -18,11 +18,11 @@ Check the [Computational Stylistics Group website](https://computationalstylisti
 	- Wednesday. Torture of text representations and multidimensional misery
 	- Thursday. Unsupervised and network analysis abyss
 	- Friday. Classification carnage
-	- Saturday. Students working to demonstrate results (+ Agony of application)
+	- Saturday. Student hackaton (+ Agony of application)  
 
--**Week 2: Research workflow**
+- **Week 2: Research workflow**  
 	- Monday. Despair of deconstructing the programmatic pipelines
 	- Tuesday. Excruciatingly explainable results and features
 	- Wednesday. Sampling slaughterhouse and bootstrap bloodbath
 	- Thursday. Revenge of replication studies and own projects’ purgatory
-	- Friday.  Students working to demonstrate results (+ Frigthful future of text analysis)
+	- Friday.  Student hackaton (+ Frigthful future of text analysis)
