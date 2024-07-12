@@ -17,11 +17,11 @@ chr
 # functions 
 my_vector = c(2,5,6) # combine values in a vector
 mean(my_vector) # average function
-seq(0, 100, by=10) # make a sequence of numbers
-paste(chr, "and this will apear to the left", sep=" ") # paste strings together
+seq(0, 100, by=10) # make a sequence of numbers, sometimes functions take arguments
+paste(chr, "and this will apear to the right", sep=" ") # paste strings together
 # object indexing
 my_vector[1] # access first element of "my_vector" variable
-my_vector[c(1,3)] # access first & second element of "my_vector
+my_vector[c(1,3)] # access first & third element of "my_vector
 
 my_table = data.frame(animals = c("cat", "cat", "dog"),
                       evaluation = c("good", "good", "very good!!"))
@@ -49,19 +49,9 @@ stylo()
 dist = read.table("distance_table_100mfw_0c.txt", sep=" ")
 word = read.table("table_with_frequencies.txt", sep=" ")
 
-### 5. Saving results to R directly
+### 5. Saving results to R variable
 
 stylo_results = stylo()
 
 summary(stylo_results) # check stylo object
 
-### also check classify() and oppose()
-
-?classify()
-?oppose()
-
-
-#### SOME DATASETS FOR INDIVIDUAL WORK
-
-#From Computational Stylistics Group (Krakow): https://computationalstylistics.github.io/resources/
-#From .txtLab (Quebec): https://txtlab.org/data-sets/ 
