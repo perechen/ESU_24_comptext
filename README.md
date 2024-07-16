@@ -26,3 +26,8 @@ Check the [Computational Stylistics Group website](https://computationalstylisti
 	- Wednesday. Sampling slaughterhouse and bootstrap bloodbath
 	- Thursday. Revenge of replication studies and own projects’ purgatory
 	- Friday.  Student hackaton (+ Frigthful future of text analysis)
+
+## Reading
+Have a look at the reading list we have prepared for the [Digital Humanities Summer Institute](https://github.com/JoannaBy/DHSI2024-DIY/blob/main/before_the_course/reading.md).
+
+You might also find interesting some other studies published in [Computational Stylistics Group](https://computationalstylistics.github.io/publications/).
