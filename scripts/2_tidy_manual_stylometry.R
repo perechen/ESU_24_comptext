@@ -1,5 +1,5 @@
 # check for mandatory libraries and download if needed
-lapply(c("stylo", "tidytext","tidyverse","ggdendro", "e1071", "tidymodels", "textrecipes", "kernlab"), 
+lapply(c("stylo", "tidytext","tidyverse","ggdendro", "e1071"), 
        function(x) if(!is.element(x, installed.packages())) install.packages(x, dependencies = T))
 
 
