@@ -49,8 +49,6 @@ rownames(frequencies[!wrongs,]) # select rows that were FALSE (i.e. 0)
 
 #### Let's build a loop for testing how many MFF we need for drama classification
 
-library(dplyr)
-library(ggplot2)
 
 mff_list <- seq(5, 205,by=20) ## define the sequence for mff's cutoffs
 results_acc <- vector(length=length(mff_list)) ## prepare an empty variable of length N for holding results
