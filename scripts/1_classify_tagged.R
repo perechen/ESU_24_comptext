@@ -1,7 +1,17 @@
 library(stylo)
 
 res = classify(training.corpus.dir = "primary_TAG",
-               test.corpus.dir = "secondary_TAG")
+               test.corpus.dir = "secondary_TAG",
+               show.features = TRUE)
+
+res$confusion_matrix
+table(res$expected,res$predicted)
+
+performance.measures(res)
+
+View(res$distinctive.features)
+
+
 summary(res)
 res$predicted
 res$expected
@@ -40,8 +50,11 @@ res = perform.nsc(training.set = primary_frequencies[,1:mff],
                                      test.set = secondary_frequencies[, 1:mff], 
                                      show.features = TRUE)
 
+performance.measures()
+
 summary(res)
 res$ranking
+res$scores
 res$confusion_matrix
 acc <- sum(diag(res$confusion_matrix)) / sum(res$confusion_matrix) 
 acc
