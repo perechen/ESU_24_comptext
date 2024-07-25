@@ -37,10 +37,15 @@ res$predicted
 acc <- sum(diag(res$confusion_matrix)) / sum(res$confusion_matrix) 
 acc
 
+# Other performance metric apart from accuracy (precision, recall, F1 score)
+performance.measures(res$predicted,res$expected)
+# or shorter (if we use the output object of classify(), crossv(), perform.delta(),  etc. 
+performance.measures(res)
 
 ## 'y' lists a 1/0 value for all documents depending on the outcome 
 res$y 
-## since its sequence is the same as the sequence of rows in our feature table we can access missclassified dramas
+## since its sequence is the same as the sequence of rows in our feature table 
+## we can access missclassified dramas
 wrongs <- as.logical(res$y) # transform 1 & 0 to TRUE & FALSE
 
 rownames(frequencies[!wrongs,]) # select rows that were FALSE (i.e. 0)
