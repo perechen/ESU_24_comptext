@@ -1,65 +1,39 @@
 library(stylo)
-
-res = classify(training.corpus.dir = "primary_TAG",
-               test.corpus.dir = "secondary_TAG",
-               show.features = TRUE)
-
-res$confusion_matrix
-table(res$expected,res$predicted)
-
-performance.measures(res)
-
-View(res$distinctive.features)
-
+###################
+# Corpus preparation:
+# 1. Download and extract https://github.com/perechen/ESU_24_comptext/tree/main/data/small_collection_POS.zip
+# in your working directory.
+# 2. Copy the contents of the corpus directory to 'primary_set' folder (default directory that classify() looks for). 
+# 3. Make another folder 'secondary_set'. From 'primary_set', move there 1 book of each author.
+# 4. Run classify()
+###################
+res = classify()
 
 summary(res)
+# A list predicted classes of books in the 'secondary_set' 
 res$predicted
+# A list real classes (labels provided) of books in the 'secondary_set' 
 res$expected
+# A list of books in the 'secondary_set' which were misclassified and how they were missclassified
+res$misclassified
+
 # Confusion matrix (which classes ended up being classified into/predicted as which)
+res$confusion_matrix
+# If it's not there, there's an easy way to make it in R:
 table(res$expected, res$predicted)
 
-# Other performance metric apart from accuracy
+# Other performance metric apart from accuracy (precision, recall, F1 score)
 performance.measures(res$predicted,res$expected)
 
 
-res = classify(training.frequencies = res$frequencies.training.set,
-         test.frequencies = res$frequencies.test.set)
+# If you named the directories otherwise, use optional arguments to point to them
+res = classify(training.corpus.dir = "primary_TAG",
+               test.corpus.dir = "secondary_TAG")
 
-
-# NSC throws an error in classify() function
-# Workaround step by step
-
-primary_set <- stylo::load.corpus.and.parse(corpus.dir="primary_TAG",
-                                              features="w",
-                                              ngram.size = 2)
-secondary_set <- stylo::load.corpus.and.parse(corpus.dir="secondary_TAG",
-                                            features="w",
-                                            ngram.size = 2)
-feature_list = stylo::make.frequency.list(primary_set, head = 5000, value = TRUE)
-feature_list = rownames(sort(feature_list, decreasing = TRUE))
-# feature_list[1:10]
-primary_frequencies = stylo::make.table.of.frequencies(corpus = primary_set,
-                                               features = feature_list,
-                                               relative = TRUE)
-secondary_frequencies = stylo::make.table.of.frequencies(corpus = secondary_set,
-                                                       features = feature_list,
-                                                       relative = TRUE)
-
-mff = 100
-res = perform.nsc(training.set = primary_frequencies[,1:mff],
-                                     test.set = secondary_frequencies[, 1:mff], 
-                                     show.features = TRUE)
-
-performance.measures()
-
-summary(res)
-res$ranking
-res$scores
-res$confusion_matrix
-acc <- sum(diag(res$confusion_matrix)) / sum(res$confusion_matrix) 
-acc
-
-features = res$features
-View(features)
-
-
+# If you choose NSC method you need to change the parameter show.features (otherwise the method won't work)
+res = classify(training.corpus.dir = "primary_TAG",
+               test.corpus.dir = "secondary_TAG",
+               show.features = TRUE)
+# NSC tries to minimise the number of features used for classification.
+# These features can be found below (zero value means a feature not used by NSC)
+View(res$distinctive.features)
