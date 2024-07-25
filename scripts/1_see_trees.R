@@ -3,6 +3,7 @@
 install.packages("devtools")
 devtools::install_github("perechen/seetrees")
 
+
 library(stylo)
 library(seetrees)
 
@@ -37,6 +38,11 @@ compare_scores(stylo_res,
                source_text = "Capote_Blood_1966",
                target_text = "HarperLee_Mockingbird_1960",
                type = "diff")
+
+compare_scores(stylo_res,
+               source_text = "Faulkner_Absalom_1936",
+               target_text = "Faulkner_Sound_1929",
+               type = "diff",top_diff = 15)
 
 ## view distance distribution! 
 view_distances(stylo_res,group = F)
